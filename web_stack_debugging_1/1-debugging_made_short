@@ -1,0 +1,10 @@
+#!/usr/bin/env
+
+#create a sym`bolic link between nginx config file and the enabled site directory.
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+#restart nginx
+service nginx start
+
+#terminate the first nginx process 
+kill "$(pgrep 'nginx' | head -1)"
